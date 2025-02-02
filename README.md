@@ -2,7 +2,7 @@
 
 ### Dependency
 ```sh
-pip install openai Pillow
+pip install openai Pillow ollama
 ```
 
 ### Credentials file
@@ -20,4 +20,4 @@ pip install openai Pillow
 ### Facts
 1. The azure deployment does not contain `image` capability. So `azure_image.py` does not work.
 2. `gpt-4o` model does not support `completions` capability. So there is no azure equivalent of `deepseek_completion.py`
-3. try ollama
+3. My local `ollama` instance is at `http://localhost:7869`
