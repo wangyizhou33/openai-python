@@ -4,13 +4,13 @@ import json
 with open('credentials.json', 'r') as file:
     credentials = json.load(file)
 
-url = "https://api.deepseek.com/chat/completions"
+url = "https://llmapi-aiinfra.navinfo.com/v1/chat/completions"
 headers = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {credentials['deepseek-key']}"
 }
 data = {
-    "model": "deepseek-chat",
+    "model": "navinfo deepseek-r1",
     "messages": [
         {
             "role": "system",
