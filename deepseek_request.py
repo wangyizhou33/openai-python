@@ -4,10 +4,10 @@ import json
 with open('credentials.json', 'r') as file:
     credentials = json.load(file)
 
-url = "https://llmapi-aiinfra.navinfo.com/v1/chat/completions"
+url = credentials["llmapi-url"] + "chat/completions"
 headers = {
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {credentials['deepseek-key']}"
+    "Authorization": f"Bearer {credentials['llmapi-key']}"
 }
 data = {
     "model": "navinfo deepseek-r1",

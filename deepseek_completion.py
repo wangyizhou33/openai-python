@@ -9,8 +9,8 @@ with open('credentials.json', 'r') as file:
 
 # gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
-    api_key=credentials["deepseek-key"],
-    base_url="https://llmapi-aiinfra.navinfo.com/v1/"
+    api_key=credentials["llmapi-key"],
+    base_url=credentials["llmapi-url"]
 )
 
 response = client.completions.create(

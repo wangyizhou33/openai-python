@@ -2,8 +2,12 @@ from ollama import Client
 import json
 from openai import OpenAI
 
+with open('credentials.json', 'r') as file:
+    credentials = json.load(file)
+
+
 vision_client = Client(
-  host='http://10.41.0.98:11434',
+  host=credentials["ollama-url"],
   headers={'x-some-header': 'some-value'}
 )
 
@@ -19,14 +23,10 @@ response = vision_client.chat(
 )
 print(response.message.content)
 
-
-with open('credentials.json', 'r') as file:
-    credentials = json.load(file)
-
 # gets API Key from environment variable OPENAI_API_KEY
 answer_client = OpenAI(
-    api_key=credentials["deepseek-key"],
-    base_url="https://llmapi-aiinfra.navinfo.com/v1"
+    api_key=credentials["llmapi-key"],
+    base_url=credentials["llmapi-url"]
 )
 
 system_prompt = "You are a classifier. Summarize the paragraph below and give me a unique class label. \

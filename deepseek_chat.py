@@ -9,8 +9,8 @@ with open('credentials.json', 'r') as file:
 
 # gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
-    api_key=credentials["deepseek-key"],
-    base_url="https://llmapi-aiinfra.navinfo.com/v1"
+    api_key=credentials["llmapi-key"],
+    base_url=credentials["llmapi-url"]
 )
 
 # # Non-streaming:
@@ -32,6 +32,10 @@ print("----- streaming request -----")
 stream = client.chat.completions.create(
   model="navinfo deepseek-v3",
     messages=[
+        {
+            "role": "system",
+            "content": "Answer in chinese"
+        },
         {
             "role": "user",
             "content": "How do I output all files in a directory using Python?",

@@ -1,12 +1,16 @@
 import requests
 import json
 
-url = "http://localhost:7869/v1/chat/completions"
+with open('credentials.json', 'r') as file:
+    credentials = json.load(file)
+
+
+url = credentials["ollama-url"] + "/v1/chat/completions"
 headers = {
     "Content-Type": "application/json"
 }
 data = {
-    "model": "llama3.2",
+    "model": "llama3.2-vision",
     "messages": [
         {
             "role": "system",

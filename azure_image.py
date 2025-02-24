@@ -14,7 +14,7 @@ api_version = "2024-02-01"
 client = AzureOpenAI(
     api_version=api_version,
     api_key=credentials["azure-chatgpt-key"],
-    azure_endpoint="https://wyzgpt4.openai.azure.com",
+    azure_endpoint=credentials["azure-chatgpt-url"],
 )
 
 result = client.images.generate(

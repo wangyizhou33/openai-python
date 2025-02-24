@@ -1,11 +1,15 @@
 from ollama import Client
+import json
+
+with open('credentials.json', 'r') as file:
+    credentials = json.load(file)
 
 client = Client(
-  host='http://localhost:7869',
+  host=credentials["ollama-url"],
   headers={'x-some-header': 'some-value'}
 )
 response = client.chat(
-    model='llama3.2', 
+    model='llama3.2-vision', 
     messages=[
         {
             'role': 'user',
@@ -15,7 +19,7 @@ response = client.chat(
 print(response.message.content)
 
 response = client.chat(
-	model="llama3.2-vision:11b",
+	model="llama3.2-vision",
 	messages=[
 		{
 			'role': 'user',

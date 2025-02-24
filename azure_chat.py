@@ -11,7 +11,7 @@ api_version = "2024-08-01-preview"
 client = AzureOpenAI(
     api_version=api_version,
     api_key=credentials["azure-chatgpt-key"],
-    azure_endpoint="https://wyzgpt4.openai.azure.com",
+    azure_endpoint=credentials["azure-chatgpt-url"],
 )
 
 completion = client.chat.completions.create(
@@ -29,7 +29,7 @@ deployment_client = AzureOpenAI(
     api_version=api_version,
     api_key=credentials["azure-chatgpt-key"],
     # https://learn.microsoft.com/en-us/azure/cognitive-services/openai/how-to/create-resource?pivots=web-portal#create-a-resource
-    azure_endpoint="https://wyzgpt4.openai.azure.com",
+    azure_endpoint=credentials["azure-chatgpt-url"],
     # Navigate to the Azure OpenAI Studio to deploy a model.
     azure_deployment="gpt-4o",  # e.g. gpt-35-instant
 )

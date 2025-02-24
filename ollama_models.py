@@ -1,7 +1,12 @@
 from ollama import Client, ListResponse, list
+import json
+
+with open('credentials.json', 'r') as file:
+    credentials = json.load(file)
+
 
 client = Client(
-  host='http://localhost:7869',
+  host=credentials["ollama-url"],
   headers={'x-some-header': 'some-value'}
 )
 response : ListResponse = client.list()

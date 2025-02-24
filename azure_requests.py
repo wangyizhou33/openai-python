@@ -4,7 +4,7 @@ import json
 with open('credentials.json', 'r') as file:
     credentials = json.load(file)
 
-url = "https://wyzgpt4.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
+url = credentials["azure-chatgpt-url"] + "/openai/deployments/gpt-4o/chat/completions?api-version=2024-08-01-preview"
 headers = {
     "Content-Type": "application/json",
     "api-key": f"{credentials['azure-chatgpt-key']}"
