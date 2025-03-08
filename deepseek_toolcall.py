@@ -3,22 +3,22 @@ from openai import OpenAI
 import json
 
 # expect credentials in a credentials.json' file
-with open('credentials.json', 'r') as file:
+with open("credentials.json", "r") as file:
     credentials = json.load(file)
+
 
 def send_messages(messages):
     response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=messages,
-        tools=tools
+        model="deepseek-chat", messages=messages, tools=tools
     )
     print("print here ", response.choices[0].message)
     return response.choices[0].message
 
+
 # gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
     api_key=credentials["public-deepseek-key"],
-    base_url=credentials["public-deepseek-url"]
+    base_url=credentials["public-deepseek-url"],
 )
 
 tools = [
@@ -35,9 +35,9 @@ tools = [
                         "description": "The city and state, e.g. San Francisco, CA",
                     }
                 },
-                "required": ["location"]
+                "required": ["location"],
             },
-        }
+        },
     },
 ]
 
