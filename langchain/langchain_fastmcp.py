@@ -2,14 +2,9 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 from dotenv import load_dotenv
 from langchain_openai import AzureChatOpenAI
+from model import load_azure_model, load_public_deepseek_model
 
-
-load_dotenv()
-model = AzureChatOpenAI(
-    api_version="2024-08-01-preview",
-    azure_endpoint="https://wyzgpt4.openai.azure.com",
-    azure_deployment="gpt-4o",  # e.g. gpt-35-instant
-)
+model = load_public_deepseek_model()
 
 
 async def main():
