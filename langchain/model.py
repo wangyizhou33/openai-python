@@ -30,8 +30,8 @@ def load_private_deepseek_model():
         credentials = json.load(file)
 
     model = ChatOpenAI(
-        base_url=credentials["llmapi-url"],
-        api_key=credentials["llmapi-key"],
+        base_url=credentials["sglang-v3-url"],
+        api_key=credentials["sglang-v3-key"],
         model="navinfo deepseek-v3",
     )
     return model
