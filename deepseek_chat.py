@@ -9,8 +9,8 @@ with open('credentials.json', 'r') as file:
 
 # gets API Key from environment variable OPENAI_API_KEY
 client = OpenAI(
-    api_key=credentials["llmapi-key"],
-    base_url=credentials["llmapi-url"]
+    api_key=credentials["public-deepseek-key"],
+    base_url=credentials["public-deepseek-url"]
 )
 
 # # Non-streaming:
@@ -30,7 +30,7 @@ client = OpenAI(
 # Streaming:
 print("----- streaming request -----")
 stream = client.chat.completions.create(
-  model="navinfo deepseek-v3",
+  model="deepseek-chat",
     messages=[
         {
             "role": "system",
